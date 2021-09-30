@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import daniel3D from '../../model.gltf'
+import daniel3D from '../../3dmodels/model.gltf';
 // import daniel3D from '../mo../model.gltf'
 
 export default function DanielHead() {
@@ -32,11 +32,11 @@ export default function DanielHead() {
         mesh.current.rotation.y -= 0.001
       }
   
-      if(Math.ceil(mesh.current.rotation.y) === 2) {
+      if(Math.round(mesh.current.rotation.y * 10) / 10 === 0.3) {
         setClockWise(false)  
       }
   
-      if(Math.ceil(mesh.current.rotation.y) === -1) {
+      if(Math.round(mesh.current.rotation.y * 10) / 10 === -0.3) {
         setClockWise(true)  
       }
     })

@@ -5,7 +5,16 @@ import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls, Shadow } from '@react-three/drei'
 import { Suspense } from "react";
 import DanielHead from "./components/DanielHead";
-import Box from './components/Box';
+import Sphere from './components/Sphere';
+// import Box from './components/Box';
+
+import hltmlSphere from './3dmodels/html.glb';
+import cssSphere from './3dmodels/css.glb';
+import javascriptSphere from './3dmodels/javascript.glb';
+import typescriptSphere from './3dmodels/typescript.glb';
+import reactSphere from './3dmodels/react.glb';
+import figmaSphere from './3dmodels/figma.glb';
+import githubSphere from './3dmodels/github.glb';
 
 
 function App() { 
@@ -29,20 +38,26 @@ function App() {
             maxAzimuthAngle={Math.PI / 2.5}
             minPolarAngle={Math.PI * .25}
             maxPolarAngle={Math.PI * .55}
-            minDistance={5}               
-            maxDistance={8}               
+            minDistance={7}               
+            maxDistance={9}               
           />
           <Environment preset="sunset" background={false} />
           
-          <DanielHead position={[0, 0, 1]}/>
+          <DanielHead position={[0, 0, 0]}/>
 
-          <Box position={[0, 0, 0]} second={1} />
-          <Box position={[0, 0, 0]} second={2} />
+          <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={1} model3D={hltmlSphere} />
+          <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={2} model3D={cssSphere} />
+          <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={3} model3D={javascriptSphere} />
+          <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={4} model3D={typescriptSphere} />
+          <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={5} model3D={reactSphere} />
+          <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={6} model3D={githubSphere} />
+          <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={7} model3D={figmaSphere} />
+          {/* <Box position={[0, 0, 0]} second={2} />
           <Box position={[0, 0, 0]} second={3} />
           <Box position={[0, 0, 0]} second={4} />
           <Box position={[0, 0, 0]} second={5} />
           <Box position={[0, 0, 0]} second={6} />
-          <Box position={[0, 0, 0]} second={7} />
+          <Box position={[0, 0, 0]} second={7} /> */}
 
           <Shadow 
             position-y={-1.79} 

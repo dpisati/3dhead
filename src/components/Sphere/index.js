@@ -1,12 +1,13 @@
-import { useFrame } from "@react-three/fiber"
+import { useFrame, useLoader } from "@react-three/fiber"
 import { useRef, useState } from "react"
-
-
 import * as THREE from 'three';
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
+// import reactSphere from '../../3dmodels/react.glb';
+// import reactSphere from '../../3dmodels/html.glb';
 const clock = new THREE.Clock()
 
-export default function Box(props) {
+export default function Sphere(props) {
     // This reference will give us direct access to the mesh
     const mesh = useRef()
     // Set up state for the hovered and active state
@@ -29,19 +30,17 @@ export default function Box(props) {
 
         
     })
-    // Return view, these are regular three.js elements expressed in JSX
+    
+    const gltf = useLoader(GLTFLoader, props.model3D);
     return (
-      <mesh
-        {...props}
-        ref={mesh}
-        scale={active ? 1.5 : 1}
-        onClick={(event) => setActive(!active)}
-        onPointerOver={(event) => setHover(true)}
-        onPointerOut={(event) => setHover(false)}
-      >
-        <boxGeometry args={[1, 1, 1]} />
-        
-        <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-      </mesh>
+        <>
+        <primitive object={gltf.scene} 
+              ref={mesh}
+              scale={hovered ? .3 : .27}
+              onClick={(event) => setActive(!active)}
+              onPointerOver={(event) => {setHover(true); console.log(mesh.current)}}
+              onPointerOut={(event) => setHover(false)}
+        />
+      </>
     )
   }
