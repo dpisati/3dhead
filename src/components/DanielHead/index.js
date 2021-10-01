@@ -17,6 +17,8 @@ export default function DanielHead() {
       } else {
         mesh.current.position.y -= 0.001
       }
+
+      console.log(hover)
   
       if(Math.ceil(mesh.current.position.y) === 2) {
         setUp(false)  

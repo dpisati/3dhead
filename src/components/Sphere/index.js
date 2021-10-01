@@ -14,6 +14,8 @@ export default function Sphere(props) {
     const [hovered, setHover] = useState(false)
     const [active, setActive] = useState(false)
 
+    console.log(hovered)
+
     // Subscribe this component to the render-loop, rotate the mesh every frame
     useFrame((state, delta) => {
         const elapsedTime = clock.getElapsedTime()
