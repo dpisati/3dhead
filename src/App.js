@@ -1,13 +1,9 @@
-import './App.css';
-
 import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls, Shadow } from '@react-three/drei'
 import { Suspense } from "react";
 import DanielHead from "./components/DanielHead";
 import Sphere from './components/Sphere';
-// import Box from './components/Box';
-
 import hltmlSphere from './3dmodels/html.glb';
 import cssSphere from './3dmodels/css.glb';
 import javascriptSphere from './3dmodels/javascript.glb';
@@ -15,7 +11,7 @@ import typescriptSphere from './3dmodels/typescript.glb';
 import reactSphere from './3dmodels/react.glb';
 import figmaSphere from './3dmodels/figma.glb';
 import githubSphere from './3dmodels/github.glb';
-
+import './App.css';
 
 function App() { 
   return (
@@ -35,7 +31,7 @@ function App() {
             enableZoom={true} 
             enableRotate={true} 
             minAzimuthAngle={-Math.PI / 3.5}
-            maxAzimuthAngle={Math.PI / 2.5}
+            maxAzimuthAngle={Math.PI / 3.5}
             minPolarAngle={Math.PI * .25}
             maxPolarAngle={Math.PI * .55}
             minDistance={7}               
@@ -52,12 +48,6 @@ function App() {
           <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={5} model3D={reactSphere} />
           <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={6} model3D={githubSphere} />
           <Sphere position={[0, 0, 0]} scale={[.5, .5, .5]} second={7} model3D={figmaSphere} />
-          {/* <Box position={[0, 0, 0]} second={2} />
-          <Box position={[0, 0, 0]} second={3} />
-          <Box position={[0, 0, 0]} second={4} />
-          <Box position={[0, 0, 0]} second={5} />
-          <Box position={[0, 0, 0]} second={6} />
-          <Box position={[0, 0, 0]} second={7} /> */}
 
           <Shadow 
             position-y={-1.79} 
@@ -70,7 +60,6 @@ function App() {
         </Suspense>
       </Canvas>
     </div>
-
   )
 }
 

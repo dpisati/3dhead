@@ -6,7 +6,7 @@ import daniel3D from '../../3dmodels/model.gltf';
 
 export default function DanielHead() {
     const mesh = useRef()
-    const [hovered, setHover] = useState(false)
+    const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
     const [up, setUp] = useState(true)
     const [clockWise, setClockWise] = useState(true)
@@ -46,7 +46,7 @@ export default function DanielHead() {
       <>
         <primitive object={gltf.scene} 
               ref={mesh}
-              scale={hovered ? .4 : .37}
+              scale={.37}
               onClick={(event) => setActive(!active)}
               onPointerOver={(event) => {setHover(true); console.log(mesh.current)}}
               onPointerOut={(event) => setHover(false)}

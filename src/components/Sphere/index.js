@@ -17,9 +17,9 @@ export default function Sphere(props) {
     // Subscribe this component to the render-loop, rotate the mesh every frame
     useFrame((state, delta) => {
         const elapsedTime = clock.getElapsedTime()
-        mesh.current.rotation.x += 0.01;
-        mesh.current.rotation.y += 0.01;
-        mesh.current.rotation.z += 0.01;
+        // mesh.current.rotation.x += 0.01;
+        mesh.current.rotation.y = -89.6;
+        // mesh.current.rotation.z += 0.01;
 
         setTimeout(() => {
             const boxAngle = elapsedTime * 0.9
@@ -36,7 +36,7 @@ export default function Sphere(props) {
         <>
         <primitive object={gltf.scene} 
               ref={mesh}
-              scale={hovered ? .3 : .27}
+              scale={.27}
               onClick={(event) => setActive(!active)}
               onPointerOver={(event) => {setHover(true); console.log(mesh.current)}}
               onPointerOut={(event) => setHover(false)}
